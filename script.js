@@ -1,20 +1,13 @@
-document.getElementById("e").onclick = function (){
-    alert("Hello");
-}
+// IC2 Purpose: student to fill in
 
-document.getElementById("f").onclick = function (){
-    console.log("Hello my name is....");
-    console.log("Counting Monkey: 1");
-    console.log("Counting Monkey: 2");
-    console.log("Counting Monkey: 3");
-}
+document.getElementById('process').onclick = function (){
+    
+    // declare variables and initialize them with DOM input
+    let myInput = document.getElementById('firstinput').value;
 
-document.getElementById("g").onclick = function (){
-    document.getElementById("r1c2").style.backgroundColor = "yellow";
-}
+    // DOM output with string expressions
+    document.getElementById('firstoutput').innerHTML = `Input value: ${myInput}.`;
 
-document.getElementById("h").onclick = function (){
-    document.getElementById("r1c2").style.backgroundColor = "white";
-    document.getElementById("r1c2").innerHTML = "";
-    document.getElementById("r1c4").innerHTML = '<img id="monkey" src="monkey.jpg">';
-}
+};
+
+
