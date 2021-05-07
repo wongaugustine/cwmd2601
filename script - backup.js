@@ -3,10 +3,9 @@ const personImage = '<img id="person" src="person.jpg">';
 const monkeyImage = '<img id="monkey" src="monkey.jpg">';
 const leftBoatImage = '<img class="boat" src="leftBoat.jpg">';
 const rightBoatImage = '<img class="boat" src="rightBoat.jpg">';
-const boatMsg = 'Must board the boat before crossing';
+const boatMsg = 'Must have at least 1 object your boat';
 const leftMsg = 'Left Side: More monkey than People';
 const rightMsg = 'Right Side: More monkey than People';
-let crossing = false;
 
 // Variables indicating body's locations; left or right side
 let personPosition = ["", "left", "left", "left"];
@@ -152,7 +151,7 @@ function switchSide() {
 
 // Boarding and paddle the boat to the other side
 function boarding () {
-    let nextStep;
+
     function crossRiver () {
         let toSide;    
         ++steps;
@@ -187,13 +186,9 @@ function boarding () {
     if (boat.count === 0) errorMsg = boatMsg;
     else errorMsg = checkRule();
 
-    nextStep = steps + 1;
     if (errorMsg !== "") {
         alert(errorMsg);
     } else {
-        //alert("step="+steps)Step 1: Click here to board
-        document.getElementById("button").innerHTML = "Step " + nextStep + ": Click here to board the boat";
-        crossing = false;
         if (boatSide === "left"){
             left.monkey -= boat.monkey;
             left.person -= boat.person;
@@ -219,62 +214,58 @@ document.getElementById("go").addEventListener("click", boarding);
 
 //To illustrate the correct steps
 document.getElementById("button").onclick = function (){
-if (crossing) return;
-    
-    document.getElementById("button").innerHTML = "Step " + steps + ": Click the boat (below) to cross river";
-    crossing = true;
+
     switch (steps){
         case 1:                        
             clickFunction("person", 1,"r1c1", "left"); 
             clickFunction("monkey", 1,"r1c2", "left");
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;
-            //document.getElementById("button").innerHTML = "Pick....";
+            document.getElementById("button").innerHTML = "Steps: "+ steps;
             break;
         case 2:            
             clickFunction("person", 1,"r1c3", "right");
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;             
+            document.getElementById("button").innerHTML = "Steps: "+ steps;             
         break;  
         case 3:
             clickFunction("monkey", 2,"r2c2", "left"); 
             clickFunction("monkey", 3,"r3c2", "left");
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;            
+            document.getElementById("button").innerHTML = "Steps: "+ steps;            
         break;
         case 4:
             clickFunction("monkey", 3,"r3c4", "right");
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;             
+            document.getElementById("button").innerHTML = "Steps: "+ steps;             
         break;
         case 5:
             clickFunction("person", 1,"r1c1", "left"); 
             clickFunction("person", 2,"r2c1", "left");
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;            
+            document.getElementById("button").innerHTML = "Steps: "+ steps;            
         break;
         case 6:
             clickFunction("person", 2,"r2c3", "right"); 
             clickFunction("monkey", 2,"r2c4", "right"); 
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;                         
+            document.getElementById("button").innerHTML = "Steps: "+ steps;                         
         break;
         case 7:
             clickFunction("person", 2,"r2c1", "left"); 
             clickFunction("person", 3,"r3c1", "left"); 
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;               
+            document.getElementById("button").innerHTML = "Steps: "+ steps;               
         break;
         case 8:
             clickFunction("monkey", 1,"r1c4", "right"); 
-            //document.getElementById("button").innerHTML = "Steps: "+ steps; 
+            document.getElementById("button").innerHTML = "Steps: "+ steps; 
         break;
         case 9:
             clickFunction("monkey", 1,"r1c2", "left"); 
             clickFunction("monkey", 2,"r2c2", "left");
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;                
+            document.getElementById("button").innerHTML = "Steps: "+ steps;                
         break;
         case 10:
             clickFunction("monkey", 2,"r2c4", "right");
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;  
+            document.getElementById("button").innerHTML = "Steps: "+ steps;  
         break;
         case 11:
             clickFunction("monkey", 2,"r2c2", "left"); 
             clickFunction("monkey", 3,"r3c2", "left"); 
-            //document.getElementById("button").innerHTML = "Steps: "+ steps;              
+            document.getElementById("button").innerHTML = "Steps: "+ steps;              
         break;                            
 
         default:
